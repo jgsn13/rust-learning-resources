@@ -67,8 +67,14 @@ fn different_types() {
         SpreadsheetCell::Float(10.12),
     ];
 
-    match &row[1] {
-        SpreadsheetCell::Int(i) => println!("{}", i),
-        _ => println!("Not an integer!"),
+    // match &row[1] {
+    //     SpreadsheetCell::Int(i) => println!("{}", i),
+    //     _ => println!("Not an integer!"),
+    // }
+
+    match row.get(10) {
+        Some(SpreadsheetCell::Int(i)) => println!("{}", i),
+        Some(_) => println!("Not an integer!"),
+        None => println!("Cell not exists!"),
     }
 }
